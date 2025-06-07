@@ -14,3 +14,32 @@
       <p>Текст</p>
   </li>
 */
+import { refs } from './js/refs.js';
+import { addTask } from './js/tasks.js';
+import { handleDeleteClick } from './js/render-tasks.js';
+import { changeTheme } from './js/theme-switcher.js';
+import { applySavedTheme } from './js/theme-switcher.js';
+import { renderTasks } from './js/markup-tasks.js';
+
+// INIT
+renderTasks();
+applySavedTheme();
+
+refs.form.addEventListener('submit', event => {
+  event.preventDefault();
+
+  const title = refs.titleInput.value.trim();
+  const desc = refs.descInput.value.trim();
+
+  if (!title || !desc) return;
+
+  addTask(title, desc);
+  renderTasks();
+
+  refs.titleInput.value = '';
+  refs.descInput.value = '';
+});
+
+refs.taskList.addEventListener('click', handleDeleteClick);
+
+refs.themeToggleBtn.addEventListener('click', changeTheme);

@@ -12,3 +12,40 @@
 
 /* Sections style */
 @import url('./header.css');
+
+body {
+  font-family: sans-serif;
+  background: #fff;
+  color: #000;
+  transition: 0.3s;
+}
+
+body.dark {
+  background: #121212;
+  color: #fff;
+}
+
+ul#task-list {
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  border: 1px solid #ccc;
+  margin: 10px 0;
+  padding: 10px;
+  background: grey;
+}
+
+body.dark li {
+  background: #333;
+}
+
+.delete-btn {
+  margin-top: 5px;
+  padding: 4px 8px;
+  background: crimson;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
